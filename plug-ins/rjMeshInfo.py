@@ -32,7 +32,7 @@ U S A G E:
 """
 
 __author__   = "Robert Joosten"
-__version__  = "0.9.0"
+__version__  = "0.9.1"
 __email__    = "rwm.joosten@gmail.com"
 
 from maya import OpenMaya, OpenMayaMPx

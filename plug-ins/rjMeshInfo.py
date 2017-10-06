@@ -26,9 +26,12 @@ U S A G E:
     Node:
         meshInfo = cmds.createNode("meshInfo")
         
-        cmds.connectAttr(mesh + ".worldSpace[0]", meshInfo + ".inMesh")
-        volume = cmds.getAttr(meshInfo + ".volume")
-        area = cmds.getAttr(meshInfo + ".area")
+        cmds.connectAttr(
+            "{0}.worldSpace[0]".format(mesh), 
+            "{0}.inMesh".format(meshInfo)
+        )
+        volume = cmds.getAttr("{0}.volume".format(meshInfo))
+        area = cmds.getAttr("{0}.area".format(meshInfo))
 """
 
 __author__   = "Robert Joosten"

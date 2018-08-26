@@ -1,13 +1,10 @@
-# rjMeshInfo
-<img align="right" src="https://github.com/robertjoosten/rjMeshInfo/blob/master/icons/meshInfo.png">
-This plugin will register a node and a command.  With the command it will be possible to query the volume of a mesh and  with the node you can query not only the volume but also the surface area  of all the faces.
+# maya-plugin-mesh-info
+<p align="center"><img src="icons/meshInfo.png?raw=true"></p>
+This plugin will register a node and a command.  With the command it will be possible to query the volume of a mesh and with the node you can query not only the volume but also the surface area  of all the faces.
 
 ## Installation
-Copy the **rjMeshInfo.py** file in any of the directories that are in your MAYA_PLUG_IN_PATH environment variable:
-> C:\Program Files\Autodesk\<MAYA_VERSION>\plug-ins
-
-Copy all the png files in any of the directories that are in your XBMLANGPATH environment variable:
-> C:\Program Files\Autodesk\<MAYA_VERSION>\icons
+* Extract the content of the .rar file anywhere on disk.
+* Drag the meshInfo.mel file in Maya to permanently install the plugin.
 
 ## Usage
 **Command:**

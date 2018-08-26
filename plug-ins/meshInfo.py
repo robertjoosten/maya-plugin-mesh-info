@@ -3,21 +3,14 @@ This plugin will register a node and a command. With the command it will be
 possible to query the volume of a mesh and with the node you can query not 
 only the volume but also the surface area of all the faces.
 
-.. figure:: https://github.com/robertjoosten/rjMeshInfo/raw/master/icons/meshInfo.png
+.. figure:: /_images/meshInfo.png
    :align: center
 
 Installation
 ============
-Copy the "rjMeshInfo.py" file in any of the directories that are in your 
-MAYA_PLUG_IN_PATH environment variable   
-::
-    C://Program Files//Autodesk//<MAYA_VERSION>//plug-ins
-    
-Copy all the png files in any of the directories that are in your 
-XBMLANGPATH environment variable
-::
-    C://Program Files//Autodesk//<MAYA_VERSION>//icons
-		
+* Extract the content of the .rar file anywhere on disk.
+* Drag the meshInfo.mel file in Maya to permanently install the plugin.
+
 Note
 ====
 This plugin will register a node and a command. With the command it will 
@@ -46,15 +39,6 @@ Node
     )
     volume = cmds.getAttr("{0}.volume".format(meshInfo))
     area = cmds.getAttr("{0}.area".format(meshInfo))
-        
-Note
-====
-This plugin will register a node and a command. With the command it will 
-be possible to query the volume of a mesh and with the node you can query 
-not only the volume but also the surface area of all the faces.
-
-Code
-====
 """
 
 __author__   = "Robert Joosten"
@@ -63,7 +47,9 @@ __email__    = "rwm.joosten@gmail.com"
 
 from maya import OpenMaya, OpenMayaMPx
 
+
 # ----------------------------------------------------------------------------
+
 
 def calculate(obj, space, calculateVolume=True, calculateArea=True):
     """
@@ -126,7 +112,8 @@ def calculate(obj, space, calculateVolume=True, calculateArea=True):
         iter.next()
         
     return volume, area
-    
+
+
 def triangleArea(p1,p2,p3):
     """
     Get surface area of the triangle that can be created from the 3 input
@@ -141,7 +128,8 @@ def triangleArea(p1,p2,p3):
     return abs(((p1.x)*((p3.y)-(p2.y)))+
                ((p2.x)*((p1.y)-(p3.y)))+
                ((p3.x)*((p2.y)-(p1.y))))*0.5
-               
+
+
 def prismVolume(p1,p2,p3,area):
     """
     Get the volume of the prism created from the 3 input points in the 
@@ -155,8 +143,10 @@ def prismVolume(p1,p2,p3,area):
     :rtype: float
     """
     return (((p1.z)+(p2.z)+(p3.z))/3.0)*area
-    
+
+
 # ----------------------------------------------------------------------------
+
 
 class MeshInfoNode(OpenMayaMPx.MPxNode):
     """
@@ -410,7 +400,9 @@ class MeshInfoCommand(OpenMayaMPx.MPxCommand):
         syntax.setObjectType(OpenMaya.MSyntax.kSelectionList)
         return syntax
 
+
 # ----------------------------------------------------------------------------
+
 
 def initializePlugin(mObject):
     mPlugin = OpenMayaMPx.MFnPlugin(mObject, __author__, __version__)
@@ -441,6 +433,7 @@ def initializePlugin(mObject):
             )
         )
 
+
 def uninitializePlugin(mObject):
     mPlugin = OpenMayaMPx.MFnPlugin(mObject, __author__, __version__)
     try:        
@@ -460,11 +453,12 @@ def uninitializePlugin(mObject):
                 MeshInfoCommand.kPluginCommandName
             )
         )
-    
+
+
 # ---------------------------------------------------------------------------------------
 
-# register AE template to layout node structure
 
+# register AE template to layout node structure
 AETemplateCommand = """
 global proc AEmeshInfoTemplate( string $nodeName )
 {
